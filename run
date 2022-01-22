@@ -2,7 +2,7 @@
 
 set -e
 
-docker run \
+docker run -it \
  -v "$(pwd)/data:/data" \
  -e SPOND_CLUB_ID \
  -e SPOND_EMAIL \
@@ -13,4 +13,4 @@ docker run \
  -e PGUSER \
  -e PGSSLMODE \
  -e PGPASSWORD \
- hortenfv-member-import
+ hortenfv-member-import "$@"
