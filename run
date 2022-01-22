@@ -2,8 +2,25 @@
 
 set -e
 
+# Read environment variables from .env file in script dir (if it exists)
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+if [ -r "$SCRIPT_DIR/.env" ]; then
+    source "$SCRIPT_DIR/.env"
+    export SPOND_PASSWORD
+    export SPOND_CLUB_ID
+    export SPOND_EMAIL
+    export PGPASSWORD
+    export PGDATABASE
+    export PGHOST
+    export PGUSER
+fi
+
+# Ensure data directory is present
+mkdir -p "$SCRIPT_DIR/data"
+
+# Run container!
 docker run -it \
- -v "$(pwd)/data:/data" \
+ -v "$SCRIPT_DIR/data:/data" \
  -e SPOND_CLUB_ID \
  -e SPOND_EMAIL \
  -e SPOND_PASSWORD \

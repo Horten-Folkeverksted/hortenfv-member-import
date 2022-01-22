@@ -1,0 +1,8 @@
+[Unit]
+Description=Spond Club API data importer
+
+[Service]
+User=root
+Group=root
+Type=oneshot
+ExecStart=/data/hortenfv-member-import/run
