@@ -30,6 +30,8 @@ fi
 
 # Run container!
 docker run $DOCKER_ARGS \
+ --rm \
+ --name hortenfv-member-import \
  -v "$SCRIPT_DIR/data:/data" \
  -e SPOND_CLUB_ID \
  -e SPOND_EMAIL \
