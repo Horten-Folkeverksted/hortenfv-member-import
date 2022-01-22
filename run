@@ -18,8 +18,18 @@ fi
 # Ensure data directory is present
 mkdir -p "$SCRIPT_DIR/data"
 
+# Test if STDIN is interactive terminal
+# http://tldp.org/LDP/abs/html/intandnonint.html
+if [ -t 0 ]; then
+    # interactive
+    DOCKER_ARGS="-it"
+else
+    # non-interactive
+    DOCKER_ARGS=""
+fi
+
 # Run container!
-docker run -it \
+docker run $DOCKER_ARGS \
  -v "$SCRIPT_DIR/data:/data" \
  -e SPOND_CLUB_ID \
  -e SPOND_EMAIL \
