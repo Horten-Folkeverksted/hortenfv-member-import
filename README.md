@@ -17,9 +17,13 @@ You need the following environment variables set for the command to work:
 * PGUSER
 * PGPASSWORD
 
-To build and run the script run the following command:
+To build the Docker container (required for systemd unit) run the following command:
 
-    ./build && ./run
+    ./build
+
+To run the Docker container (make sure `.env` is setup, see below):
+
+    ./run
 
 The database schema can be exported with this command:
 
