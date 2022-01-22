@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -e
+
+docker run \
+ -v "$(pwd)/data:/data" \
+ -e SPOND_CLUB_ID \
+ -e SPOND_EMAIL \
+ -e SPOND_PASSWORD \
+ -e PGHOST \
+ -e PGPORT \
+ -e PGDATABASE \
+ -e PGUSER \
+ -e PGSSLMODE \
+ -e PGPASSWORD \
+ hortenfv-member-import
