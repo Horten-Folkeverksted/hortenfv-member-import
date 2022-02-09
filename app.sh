@@ -128,6 +128,7 @@ INSERT INTO members (
     address,
     country,
     groups,
-    gender
+    gender,
+    deleted
 ) SELECT * FROM json_populate_recordset(null::members, :'content');
 EOF
